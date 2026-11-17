@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Betania Harvest Colombia — Propuesta de Alianza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--cream:#FAF7F2;--white:#fff;--sub:#F3EDE4;--line:#E6DFD5;--esp:#231710;--soft:#5A4A3F;--amb:#B86B28;--amb-l:#FDF4EB;--for:#2D5A43;--for-l:#EDF5F0;--sh:0 2px 10px rgba(35,23,16,.05)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px;height:100%}
+body{font-family:'Plus Jakarta Sans',-apple-system,sans-serif;background:var(--cream);color:var(--esp);height:100%;overflow:hidden;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);-webkit-font-smoothing:antialiased}
+.top,.bot{display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-shrink:0;background:var(--cream)}
+.top{height:56px;border-bottom:1px solid var(--line)}
+.bot{height:68px;border-top:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.brand i{width:9px;height:9px;border-radius:50%;background:var(--amb)}
+.pill{font-size:.85rem;font-weight:600;color:var(--soft);background:var(--sub);padding:4px 14px;border-radius:20px}
+button{font-family:inherit;cursor:pointer}
+.ghost{background:transparent;border:1px solid var(--line);color:var(--soft);padding:9px 16px;border-radius:9px;font-size:.82rem;font-weight:600;min-height:44px}
+.ghost.on{background:var(--esp);color:#fff;border-color:var(--esp)}
+.stage{flex:1;min-height:0;display:flex;justify-content:center;padding:18px 28px;overflow:hidden}
+.slide{display:none;width:100%;max-width:1280px;height:100%;flex-direction:column;gap:14px;overflow-y:auto;animation:f .3s ease}
+.slide.on{display:flex}
+@keyframes f{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eb{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amb);margin-bottom:4px}
+h2{font-family:'Playfair Display',Georgia,serif;font-size:2.1rem;line-height:1.15}
+.head{padding-bottom:12px;border-bottom:1px solid var(--line);flex-shrink:0}
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.cover{flex:1;background:var(--white);border:1px solid var(--line);border-radius:22px;padding:60px 70px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.cover:before{content:"";position:absolute;inset:0 0 auto 0;height:7px;background:linear-gradient(90deg,var(--esp),var(--amb) 60%,var(--for))}
+.badge{display:inline-block;background:var(--amb-l);color:var(--amb);border:1px solid rgba(184,107,40,.25);padding:7px 16px;border-radius:30px;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:26px}
+.cover h1{font-family:'Playfair Display',Georgia,serif;font-size:3.5rem;line-height:1.1;max-width:900px;margin-bottom:22px}
+.cover p{font-size:1.25rem;line-height:1.6;color:var(--soft);max-width:800px}
+.cfoot{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;color:var(--soft)}
+.g2,.g3,.g4{display:grid;gap:18px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:10px}
+.card.mut{background:var(--sub)}.card.amb{border-top:4px solid var(--amb)}.card.for{border-top:4px solid var(--for)}
+.lab{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--amb)}
+.for .lab{color:var(--for)}
+.card h3{font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;line-height:1.25}
+.card p,.card li{font-size:1.02rem;line-height:1.55;color:var(--soft)}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.card li{padding-left:20px;position:relative}
+.card li:before{content:"•";position:absolute;left:3px;color:var(--amb);font-weight:700}
+.for li:before{content:"✓";color:var(--for);left:2px}
+.call{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--amb);border-radius:12px;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.call.for{background:var(--for-l);border-color:#C4DDD0;border-left-color:var(--for)}
+.call p{font-size:1.05rem;line-height:1.5}
+.call b.m{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--for);white-space:nowrap}
+.ph{border:2px dashed var(--line);border-radius:14px;padding:18px;color:var(--soft);font-size:1rem;line-height:1.5;background:var(--white)}
+.ph b{display:block;color:var(--esp);margin-bottom:4px}
+/* flujo */
+.bar{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;background:var(--sub);padding:8px 14px;border-radius:10px;font-size:.85rem;font-weight:600}
+.bar span.p{background:var(--white);border:1px solid var(--line);padding:4px 12px;border-radius:20px}
+.bar span.h{border-color:var(--amb);color:var(--amb);background:var(--amb-l)}
+.tabs{display:inline-flex;background:var(--sub);padding:4px;border-radius:10px;border:1px solid var(--line)}
+.tabs button{border:0;background:transparent;padding:10px 18px;border-radius:7px;font-size:.88rem;font-weight:600;color:var(--soft);min-height:44px}
+.tabs button.on{background:var(--esp);color:#fff}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:14px 20px}
+.nd{background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;position:relative;min-height:92px;display:flex;flex-direction:column;justify-content:center;transition:.2s}
+.nd.on{background:var(--esp);border-color:var(--esp);color:#fff}
+.nd:not(.last):after{content:"→";position:absolute;right:-17px;top:50%;transform:translateY(-50%);color:var(--amb);font-weight:700}
+.nd:nth-child(6n):after{content:""}
+.nd small{font-size:.74rem;font-weight:700;text-transform:uppercase;color:var(--amb);letter-spacing:.05em}
+.nd.on small{color:#F3D5A5}
+.nd b{font-size:.95rem;line-height:1.2;margin:2px 0}
+.nd em{font-style:normal;font-size:.8rem;color:var(--soft);line-height:1.2}
+.nd.on em{color:#E6DFD5}
+.insp{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--amb);border-radius:12px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:1rem;line-height:1.45}
+.insp i{font-style:normal;background:var(--amb-l);color:var(--amb);font-weight:700;font-size:.9rem;padding:7px 14px;border-radius:20px;white-space:nowrap}
+/* tabla rendimiento */
+table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:1rem}
+th,td{padding:11px 16px;text-align:right;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+th{background:var(--sub);font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+tr.k td{background:var(--for-l);font-weight:700;color:var(--for)}
+td small{color:var(--soft);display:block;font-size:.8rem}
+/* simulador */
+.sim{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.pn{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:11px}
+.cl{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--soft)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:5px}
+.seg button{background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:10px;font-size:.88rem;font-weight:600;color:var(--esp);min-height:44px}
+.seg button.on{background:var(--esp);color:#fff;border-color:var(--esp)}
+.ins{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.ins label{display:flex;flex-direction:column;gap:4px;font-size:.74rem;font-weight:700;text-transform:uppercase;color:var(--soft);letter-spacing:.04em}
+.ins input{border:1px solid var(--line);border-radius:8px;padding:9px;font:inherit;font-size:1rem;font-weight:700;text-align:right;width:100%;background:var(--cream);color:var(--esp)}
+.lg{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-top:1px solid var(--line);padding-top:10px}
+.lg h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--amb);margin-bottom:6px}
+.lg div.r{display:flex;justify-content:space-between;gap:8px;font-size:.88rem;padding:3px 0;color:var(--soft)}
+.lg div.r b{color:var(--esp);white-space:nowrap}
+.lg div.s{display:flex;justify-content:space-between;border-top:1px dashed var(--line);margin-top:4px;padding-top:6px;font-weight:700;font-size:.92rem}
+.tot{display:flex;justify-content:space-between;align-items:center;background:var(--amb-l);border-radius:10px;padding:10px 14px;font-weight:700}
+.tot b{color:var(--amb);font-size:1.2rem}
+.sc{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--cream)}
+.sc.hi{background:var(--for-l);border-color:#B8D8C7}
+.sc h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--soft);margin-bottom:6px}
+.sc .r{display:flex;justify-content:space-between;gap:8px;font-size:.9rem;padding:2px 0;color:var(--soft)}
+.sc .r b{color:var(--esp)}
+.sc .r.k b{color:var(--for);font-size:1.02rem}
+.note{font-size:.88rem;line-height:1.45;color:var(--soft);background:var(--sub);padding:10px 16px;border-radius:10px;border-left:3px solid var(--for)}
+.step{width:34px;height:34px;border-radius:50%;background:var(--amb-l);color:var(--amb);font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.wk{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--amb)}
+.dots{display:flex;gap:9px;align-items:center}
+.dot{width:10px;height:10px;border-radius:50%;background:#D6CCC0;cursor:pointer;transition:.25s;border:0;padding:0}
+.dot.on{width:26px;border-radius:6px;background:var(--esp)}
+.nav{display:flex;gap:10px}
+.bn{background:var(--white);border:1px solid var(--line);color:var(--esp);padding:11px 22px;border-radius:9px;font-size:.92rem;font-weight:600;min-height:46px}
+.bn.p{background:var(--esp);color:#fff;border-color:var(--esp)}
+.bn:disabled{opacity:.35}
+.notes{position:fixed;right:24px;bottom:84px;width:380px;max-width:calc(100vw - 48px);background:var(--esp);color:#FAF7F2;border-radius:14px;padding:18px 20px;display:none;z-index:50;box-shadow:0 20px 40px rgba(35,23,16,.3);font-size:.92rem;line-height:1.55}
+.notes.on{display:block}
+.notes h5{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:#E3A869;margin-bottom:8px}
+@media(max-width:900px){.g2,.g3,.g4,.sim,.lg{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}.nd:after{display:none}.ins{grid-template-columns:1fr 1fr}.cover{padding:32px 24px}.cover h1{font-size:2.2rem}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><i></i>Betania Harvest Colombia</div>
+  <div class="pill" id="pill">1 / 10</div>
+  <div style="display:flex;gap:10px">
+    <button class="ghost" id="bNotes" onclick="toggleNotes()">Notas</button>
+    <button class="ghost" onclick="fs()">Pantalla completa</button>
+  </div>
+</header>
+
+<main class="stage" id="stage">
+
+<!-- 1 PORTADA -->
+<section class="slide on" data-note="Inicia con cercanía y orgullo. Esta es nuestra propuesta para llevar el café de la finca en Betania a Estados Unidos con marca propia.">
+  <div class="cover">
+    <div>
+      <span class="badge">Alianza de exportación • Betania, Antioquia</span>
+      <h1>De nuestras montañas en Betania a las mesas de Estados Unidos</h1>
+      <p>Una propuesta para convertir el café de la finca en una marca propia de especialidad, vendida en dólares, sin que ustedes asuman la carga operativa.</p>
+    </div>
+    <div class="cfoot"><div>Presentado por <b>Camila Mateus &amp; Alejandro Gaviria</b></div><div><b>Betania Harvest Colombia</b></div></div>
+  </div>
+</section>
+
+<!-- 2 OPORTUNIDAD -->
+<section class="slide" data-note="Hoy el café sale como pergamino sin marca. En EE. UU. se vende con historia a un precio que depende de la oferta y la demanda, por eso siempre hablamos en rangos.">
+  <div class="head"><div class="eb">01 • Por qué dar este paso</div><h2>La oportunidad: que el valor se quede en casa</h2></div>
+  <div class="body">
+    <div class="g2">
+      <div class="card mut"><span class="lab">Hoy</span><h3>Cómo se vende</h3>
+        <ul><li>El café sale como pergamino, sin marca ni historia.</li><li>El precio lo fija el mercado local, día a día.</li><li>La mayor parte del margen queda en tostadores y marcas del exterior.</li></ul></div>
+      <div class="card for"><span class="lab">Lo que proponemos</span><h3>Una marca propia, en dólares</h3>
+        <ul><li>El mismo grano, tostado y empacado con la historia de la finca.</li><li>Venta directa en EE. UU. a clientes confirmados <b>antes</b> de enviar.</li><li>El precio final depende del mercado: trabajamos con un rango, no con una cifra fija.</li></ul></div>
+    </div>
+    <div class="call"><p><b>La finca ya tiene lo más valioso:</b> café de altura (1.550 – 1.800 m s. n. m.). Nosotros ponemos el puente comercial, logístico y digital.</p></div>
+  </div>
+</section>
+
+<!-- 3 EQUIPO -->
+<section class="slide" data-note="Dejar claro quién hace qué. Insistir: no cobramos honorarios; ganamos solo si hay utilidad.">
+  <div class="head"><div class="eb">02 • Equipo y roles</div><h2>Quiénes somos y qué aportamos</h2></div>
+  <div class="body">
+    <div class="g2">
+      <div class="card amb"><span class="lab">Comercio exterior y ventas</span><h3>Camila — Dirección comercial</h3><p>Consigue y negocia los clientes en EE. UU. (en inglés), gestiona los requisitos de la FDA y coordina los trámites de exportación, incluida la liberación del envío si hubiera retención.</p></div>
+      <div class="card amb"><span class="lab">Operaciones y marca</span><h3>Alejandro — Logística, producción y marca</h3><p>Coordina trilla, tostión, empaque, transporte nacional y toda la presencia digital (página web e Instagram).</p></div>
+    </div>
+    <div class="call for"><p><b>Cero honorarios:</b> asumimos el 100% del trabajo operativo, comercial y de marketing sin cobrar por él. Solo ganamos si el proyecto genera utilidad.</p><b class="m">$0 COP</b></div>
+  </div>
+</section>
+
+<!-- 4 TIENDAS -->
+<section class="slide" data-note="Mostrar que la demanda se construye ANTES de enviar. Reemplazar los recuadros con la lista real de tiendas objetivo (nombre, ciudad, tipo de cliente, estado del contacto).">
+  <div class="head"><div class="eb">03 • Demanda</div><h2>Tiendas y tostadores objetivo en EE. UU.</h2></div>
+  <div class="body">
+    <div class="g3">
+      <div class="ph"><b>[Tienda 1]</b>Ciudad, estado · tipo de cliente · estado del contacto</div>
+      <div class="ph"><b>[Tienda 2]</b>Ciudad, estado · tipo de cliente · estado del contacto</div>
+      <div class="ph"><b>[Tienda 3]</b>Ciudad, estado · tipo de cliente · estado del contacto</div>
+      <div class="ph"><b>[Tienda 4]</b>Ciudad, estado · tipo de cliente · estado del contacto</div>
+      <div class="ph"><b>[Tienda 5]</b>Ciudad, estado · tipo de cliente · estado del contacto</div>
+      <div class="ph"><b>[Tienda 6]</b>Ciudad, estado · tipo de cliente · estado del contacto</div>
+    </div>
+    <div class="call for"><p><b>Regla de la alianza:</b> no se envía nada que no tenga comprador confirmado. Las ventas se cierran antes del despacho.</p></div>
+  </div>
+</section>
+
+<!-- 5 HOJA DE RUTA -->
+<section class="slide" data-note="Dos rutas: café tostado con marca propia, o grano verde a tostadores. Toquen cada etapa para ver qué hacemos y cuánto cuesta. Costos del piloto de 88 bolsas.">
+  <div class="head" style="padding-bottom:8px"><div class="eb">04 • De Betania a EE. UU.</div><h2>Nuestra hoja de ruta</h2></div>
+  <div class="body" style="gap:12px">
+    <div class="bar"><span class="p h">Piloto: 88 bolsas</span>➔<span class="p">Crecimiento: pallets</span>➔<span class="p">Escala: contenedores</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <div class="tabs"><button class="on" id="r1" onclick="setRoute(1)">Ruta 1: Café tostado (marca propia)</button><button id="r2" onclick="setRoute(2)">Ruta 2: Grano verde (a tostadores)</button></div>
+      <span style="font-size:.85rem;color:var(--soft)">Toca cada etapa para ver gestión y costo</span>
+    </div>
+    <div class="flow" id="flow"></div>
+    <div class="insp" id="insp"></div>
+  </div>
+</section>
+
+<!-- 6 BLINDAJE -->
+<section class="slide" data-note="Transmitir tranquilidad: conocemos cada requisito de origen y destino.">
+  <div class="head"><div class="eb">05 • Seguridad legal y sanitaria</div><h2>Blindaje legal y sanitario</h2></div>
+  <div class="body">
+    <div class="g2">
+      <div class="card"><span class="lab">Origen</span><h3>Respaldo INVIMA</h3><p>Procesamos y empacamos en planta certificada para cumplir la normativa nacional de exportación.</p></div>
+      <div class="card"><span class="lab">Destino EE. UU.</span><h3>Registro FDA</h3><p>Registro sanitario exigido para el ingreso de alimentos, con agente autorizado en EE. UU.</p></div>
+      <div class="card"><span class="lab">Empaque</span><h3>Etiquetado en inglés</h3><p>Peso neto en onzas y gramos, origen colombiano, datos del distribuidor y trazabilidad.</p></div>
+      <div class="card"><span class="lab">Cada despacho</span><h3>Aviso previo FDA y planilla FNC</h3><p>Se tramitan antes de cada envío para un tránsito aduanero ágil. Si hubiera retención, nosotros gestionamos su liberación.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 CUÁNTO CAFÉ -->
+<section class="slide" data-note="Respuesta a: ¿cuánto pergamino pedir para asegurar 88 bolsas? Se calcula hacia atrás: bolsas → café tostado → café verde → pergamino. Pedimos 72 kg para cubrir incluso el peor escenario.">
+  <div class="head"><div class="eb">06 • Cuánto café necesitamos</div><h2>Para asegurar 88 bolsas pedimos 72 kg de pergamino</h2></div>
+  <div class="body">
+    <table id="ytab"></table>
+    <div class="call for"><p id="ycheck"></p></div>
+    <div class="note">Rendimientos de referencia: pérdida de peso al tostar 14–18%; pergamino → café verde de calidad especialidad 70–76% (la FNC usa 74,5% como referencia para factor 94). Se confirman con la trilla real en la semana 2.</div>
+  </div>
+</section>
+
+<!-- 8 NÚMEROS -->
+<section class="slide" data-note="Todo se calcula en vivo y en rangos. Dos precios de venta (mínimo y máximo), TRM editable. Costos separados: producción y transporte/exportación. El valor del café local es el precio de referencia FNC; ajusten al precio real que recibe la finca.">
+  <div class="head" style="padding-bottom:8px"><div class="eb">07 • Transparencia financiera</div><h2>Nuestros números, en rangos</h2></div>
+  <div class="body" style="gap:12px">
+    <div class="sim">
+      <div class="pn">
+        <div><span class="cl">1. Tamaño del lote</span>
+          <div class="seg"><button class="on" id="v88" onclick="setVol(88)">Piloto: 88 bolsas (72 kg)</button><button id="v176" onclick="setVol(176)">Escala 2×: 176 bolsas (142 kg)</button></div></div>
+        <div><span class="cl">2. Escenario de costos</span>
+          <div class="seg"><button class="on" id="b1" onclick="setBuf(1)">Presupuesto base</button><button id="b2" onclick="setBuf(1.2)">Con holgura +20%</button></div></div>
+        <div class="ins">
+          <label>Precio mín. USD/bolsa<input type="number" id="pLo" value="13" step="0.5" oninput="sim()"></label>
+          <label>Precio máx. USD/bolsa<input type="number" id="pHi" value="18" step="0.5" oninput="sim()"></label>
+          <label>TRM COP/USD<input type="number" id="trm" value="4200" step="50" oninput="sim()"></label>
+          <label>Costos venta EE. UU. %<input type="number" id="sc" value="0" step="1" min="0" max="50" oninput="sim()"></label>
+        </div>
+        <div class="lg" id="lg"></div>
+        <div class="tot"><span>Desembolso en efectivo de la finca</span><b id="tot"></b></div>
+      </div>
+      <div class="pn" id="res"></div>
+    </div>
+    <div class="note"><b>Cuentas claras:</b> lo presupuestado puede variar ±20% según precios reales de insumos y transporte; cada peso ejecutado tendrá factura y soporte. El café en pergamino es aporte de la finca y no sale como efectivo.</div>
+  </div>
+</section>
+
+<!-- 9 ALIANZA -->
+<section class="slide" data-note="Propuesta inicial 60% finca / 40% nosotros sobre la utilidad neta. Es negociable. El desembolso se pide en dos fases para que la finca no adelante todo.">
+  <div class="head"><div class="eb">08 • Reglas claras</div><h2>Cómo funciona la alianza</h2></div>
+  <div class="body">
+    <div class="g3">
+      <div class="card amb"><span class="step">1</span><h3>Aportes</h3><p>La finca aporta el café y el efectivo de producción y transporte. Nosotros aportamos <b>100% del trabajo</b> técnico, logístico, comercial y digital, sin honorarios.</p></div>
+      <div class="card"><span class="step">2</span><h3>Desembolso en dos fases</h3><p><b>Fase 1:</b> producción (trilla, tostión, empaque y catación). <b>Fase 2:</b> transporte y exportación, solo cuando los clientes estén confirmados.</p></div>
+      <div class="card for"><span class="step" style="background:var(--for-l);color:var(--for)">3</span><h3>Recuperación y reparto</h3><p>Primero la finca recupera su efectivo comprobado con facturas. La utilidad neta en dólares se reparte <b>60% finca / 40% nosotros</b>.</p></div>
+    </div>
+    <div class="call"><p><b>Punto de partida, no una imposición:</b> el 60/40 es nuestra propuesta inicial y está abierta a conversarse. Lo acordado se firmaría por escrito.</p><b class="m">60 / 40</b></div>
+  </div>
+</section>
+
+<!-- 10 PLAN -->
+<section class="slide" data-note="Cierre: cronograma de 4 semanas y lo que necesitamos HOY. Terminar pidiendo la decisión.">
+  <div class="head"><div class="eb">09 • Cronograma y próximo paso</div><h2>Plan de 4 semanas y lo que necesitamos hoy</h2></div>
+  <div class="body">
+    <div class="g4">
+      <div class="card"><span class="wk">Semana 1</span><h3>Selección del lote</h3><p>Definimos los 72 kg de pergamino en Betania y su traslado.</p></div>
+      <div class="card"><span class="wk">Semana 2</span><h3>Trilla, tostión y catación</h3><p>Medellín: trilla, tostión y puntaje SCA con ficha técnica.</p></div>
+      <div class="card"><span class="wk">Semana 3</span><h3>Empaque y marca</h3><p>88 bolsas con etiqueta FDA; web e Instagram activos; clientes confirmados.</p></div>
+      <div class="card for"><span class="wk" style="color:var(--for)">Semana 4</span><h3>Primer despacho</h3><p>Guía FNC y aviso previo FDA; envío a Miami.</p></div>
+    </div>
+    <div class="call for" style="align-items:flex-start"><div><p style="font-weight:700;margin-bottom:6px">Lo que necesitamos hoy de ustedes:</p><p>① Una <b>muestra de pergamino</b> para la catación SCA (y luego los <b>72 kg</b> del lote). ② El desembolso de <b>Fase 1 (producción)</b>: <b id="f1"></b>. ③ La <b>Fase 2 (transporte y exportación)</b>, <b id="f2"></b>, se solicita solo cuando los clientes estén confirmados.</p></div></div>
+  </div>
+</section>
+</main>
+
+<aside class="notes" id="notes"><h5>Guía para exponer</h5><div id="nb"></div></aside>
+
+<footer class="bot">
+  <div class="dots" id="dots"></div>
+  <div class="nav"><button class="bn" id="bp" onclick="step(-1)" disabled>← Anterior</button><button class="bn p" id="bx" onclick="step(1)">Siguiente →</button></div>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const slides=[...document.querySelectorAll('.slide')];let cur=0;
+slides.forEach((_,i)=>{const d=document.createElement('button');d.className='dot'+(i?'':' on');d.setAttribute('aria-label','Ir a la diapositiva '+(i+1));d.onclick=()=>go(i);$('dots').appendChild(d)});
+function ui(){slides.forEach((s,i)=>s.classList.toggle('on',i===cur));document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===cur));$('pill').textContent=(cur+1)+' / '+slides.length;$('bp').disabled=cur===0;$('bx').disabled=cur===slides.length-1;$('nb').textContent=slides[cur].dataset.note||''}
+function go(i){cur=i;ui()}
+function step(d){const n=cur+d;if(n>=0&&n<slides.length){cur=n;ui()}}
+function toggleNotes(){$('notes').classList.toggle('on');$('bNotes').classList.toggle('on')}
+function fs(){document.fullscreenElement?document.exitFullscreen().catch(()=>{}):document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen().catch(()=>{})}
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();step(1)}else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();step(-1)}});
+let tx=0;const st=$('stage');
+st.addEventListener('touchstart',e=>{tx=e.changedTouches[0].screenX},{passive:true});
+st.addEventListener('touchend',e=>{if(e.target.closest('input,.flow,table,.pn'))return;const d=e.changedTouches[0].screenX-tx;if(Math.abs(d)>70)step(d<0?1:-1)},{passive:true});
+
+/* ===== MODELO (todas las cifras salen de aquí) ===== */
+const LB=0.45359237;                       // kg por libra
+const ROAST={fav:0.86,cen:0.84,con:0.82}; // rendimiento tostado (1 - merma 14/16/18%)
+const YLD={fav:0.76,cen:0.73,con:0.70};   // pergamino -> verde
+const SAMPLE_GREEN=0.5;                    // kg verde para catación
+const SC={88:{bags:88,pg:72,bat:2,fl:50000},176:{bags:176,pg:142,bat:4,fl:100000}};
+const fmt=n=>'$'+Math.round(n).toLocaleString('es-CO');
+const cop=n=>fmt(n)+' COP';
+function costs(v){const s=SC[v];
+ const prod=[['Trilla ('+s.pg+' kg × $1.000)',s.pg*1000],['Tostión ('+s.bat+' baches × $100.000)',s.bat*100000],['Empaque ('+s.bags+' bolsas × $2.000)',s.bags*2000],['Catación SCA y reserva',220000]];
+ const trn=[['Flete finca → Medellín',s.fl],['Courier internacional',1100000*s.bags/88],['Contribución FNC ('+s.bags+' lb × $43)',s.bags*43],['Registro INVIMA',350000]];
+ const sum=a=>a.reduce((t,x)=>t+x[1],0);
+ return{s,prod,trn,tp:sum(prod),tt:sum(trn)}}
+
+/* Rendimiento */
+(function(){
+ const bags=88,kgR=bags*LB;
+ const row=k=>{const g=kgR/ROAST[k];return{g,p:g/YLD[k]}};
+ const f=row('fav'),c=row('cen'),w=row('con');
+ const n=(x,d=1)=>x.toLocaleString('es-CO',{minimumFractionDigits:d,maximumFractionDigits:d});
+ $('ytab').innerHTML=`<tr><th></th><th>Favorable</th><th>Central</th><th>Conservador</th></tr>
+ <tr><td>Bolsas de 1 lb × 453,6 g<small>café tostado que debemos entregar</small></td><td>${n(kgR)} kg</td><td>${n(kgR)} kg</td><td>${n(kgR)} kg</td></tr>
+ <tr><td>Merma al tostar<small>rendimiento del tueste</small></td><td>14% (86%)</td><td>16% (84%)</td><td>18% (82%)</td></tr>
+ <tr><td>Café verde necesario</td><td>${n(f.g)} kg</td><td>${n(c.g)} kg</td><td>${n(w.g)} kg</td></tr>
+ <tr><td>Rendimiento de trilla<small>pergamino → verde</small></td><td>76%</td><td>73%</td><td>70%</td></tr>
+ <tr class="k"><td>Pergamino necesario</td><td>${n(f.p)} kg</td><td>${n(c.p)} kg</td><td>${n(w.p)} kg</td></tr>`;
+ const order=SC[88].pg,bagsFrom=(k)=>((order*YLD[k]-SAMPLE_GREEN)*ROAST[k])/LB;
+ $('ycheck').innerHTML=`<b>Verificación:</b> con ${order} kg de pergamino, incluso en el escenario conservador salen <b>${n(bagsFrom('con'),0)} bolsas</b> (tras apartar ${SAMPLE_GREEN.toString().replace('.',',')} kg de verde para la catación); en el central, ${n(bagsFrom('cen'),0)}; en el favorable, ${n(bagsFrom('fav'),0)}. El margen cubre muestras y variaciones del lote.`;
+})();
+
+/* Simulador */
+let vol=88,buf=1;
+function setVol(v){vol=v;$('v88').classList.toggle('on',v===88);$('v176').classList.toggle('on',v===176);sim()}
+function setBuf(b){buf=b;$('b1').classList.toggle('on',b===1);$('b2').classList.toggle('on',b===1.2);sim()}
+function sim(){
+ const C=costs(vol),s=C.s,trm=+$('trm').value||4200,sc=(+$('sc').value||0)/100;
+ const list=a=>a.map(x=>`<div class="r"><span>${x[0]}</span><b>${fmt(x[1])}</b></div>`).join('');
+ $('lg').innerHTML=`<div><h4>Producción (Fase 1)</h4>${list(C.prod)}<div class="s"><span>Subtotal</span><span>${fmt(C.tp)}</span></div></div><div><h4>Transporte y exportación (Fase 2)</h4>${list(C.trn)}<div class="s"><span>Subtotal</span><span>${fmt(C.tt)}</span></div></div>`;
+ const out=(C.tp+C.tt)*buf;
+ $('tot').textContent=cop(out)+(buf>1?' (con +20%)':'');
+ const local=(+(window.localKg||16080))*s.pg;
+ const sc1=(p,hi,label)=>{
+  const usd=s.bags*p*(1-sc),rev=usd*trm,u=rev-out,fin=u*0.6,nos=u*0.4;
+  return`<div class="sc ${hi?'hi':''}"><h4>${label} · $${p} USD/bolsa</h4>
+  <div class="r"><span>Ingreso neto EE. UU.</span><b>${fmt(usd)} USD · ${fmt(rev)} COP</b></div>
+  <div class="r"><span>Utilidad neta (tras recuperar desembolso)</span><b>${u>=0?'+':''}${fmt(u)} COP</b></div>
+  <div class="r k"><span>Finca (60%)</span><b>${fmt(fin)} COP</b></div>
+  <div class="r"><span>Nosotros (40%)</span><b>${fmt(nos)} COP</b></div>
+  <div class="r"><span>Retorno sobre efectivo</span><b>${(u/out*100).toFixed(0)}%</b></div>
+  <div class="r"><span>Finca vs. vender pergamino hoy</span><b>${fin>=local?'+':''}${fmt(fin-local)} COP</b></div></div>`};
+ const lo=+$('pLo').value||13,hi=+$('pHi').value||18;
+ $('res').innerHTML=sc1(lo,false,'Escenario mínimo')+sc1(hi,true,'Escenario máximo')+
+ `<div class="note">Vender hoy el pergamino (${s.pg} kg × ~$16.080/kg, referencia FNC ≈ $2,01 M/carga a nov-2026) rendiría ≈ <b>${fmt(local)} COP</b>. Ajusten al precio real que recibe la finca.</div>`;
+ $('f1').textContent=cop(C.tp*buf);$('f2').textContent=cop(C.tt*buf);
+}
+
+/* Flujograma */
+const up=[
+ {t:'Finca',s:'72 kg de pergamino',a:'Seleccionamos en Betania el lote de pergamino seco con humedad controlada y trazabilidad de origen.',c:'Aporte en especie'},
+ {t:'Transporte a Medellín',s:'$40.000 – $60.000',a:'Despacho terrestre seguro en sacos limpios hasta la planta aliada en Medellín.',c:'$40.000 – $60.000 COP'},
+ {t:'Trilladora',s:'$1.000 por kg',a:'Supervisamos trilla y clasificación por tamaño para asegurar uniformidad.',c:'$72.000 COP (72 kg)'},
+ {t:'Café verde',s:'≈ 70–76% del pergamino',a:'Verificamos el rendimiento real de almendra limpia y definimos el destino según la ruta.',c:'Control incluido'}];
+const r1=[
+ {t:'Tostado',s:'Bache 25 kg: $100.000',a:'Curva de tueste medio y catación SCA para certificar el puntaje en taza. Con ~50 kg de verde: 2 baches.',c:'$200.000 COP (2 baches)'},
+ {t:'Ficha técnica',s:'Perfil sensorial',a:'Ficha con notas de cata, acidez, cuerpo y altura para respaldar el precio en EE. UU.',c:'Incluido en maquila'},
+ {t:'Empaque',s:'Bolsa 1 lb, 88 unidades',a:'Bolsas trilaminadas de 1 lb con válvula y etiqueta bilingüe bajo normativa FDA.',c:'$176.000 COP (88 × $2.000)'},
+ {t:'Alistamiento',s:'Embalaje de exportación',a:'Cajas de exportación, factura comercial y lista de empaque.',c:'Gestión nuestra ($0)'},
+ {t:'Courier recoge',s:'DHL / FedEx Express',a:'Recolección en Medellín con courier internacional bajo exportación simplificada.',c:'~$1.100.000 COP'},
+ {t:'Proceso aduanero',s:'FNC / aviso previo FDA',a:'Planilla simplificada de la FNC y aviso previo electrónico ante la FDA.',c:'~$43 COP/lb + $350.000 INVIMA'},
+ {t:'Vuelo',s:'Rionegro → Miami',a:'Seguimiento del tránsito aéreo (3 a 4 días hábiles) hasta su liberación en aduana.',c:'Incluido en el flete'},
+ {t:'EE. UU.',s:'Venta marca propia',a:'Entrega a los clientes ya confirmados y cobro en dólares.',c:'Ingreso en USD'}];
+const r2=[
+ {t:'Se empaca',s:'Saco GrainPro',a:'Grano verde en bolsas herméticas de alta barrera para conservar frescura.',c:'~$35.000 COP / saco'},
+ {t:'Alistamiento',s:'Embalaje B2B',a:'Bultos de exportación y documentación comercial para los tostadores compradores.',c:'Gestión nuestra ($0)'},
+ {t:'Courier recoge',s:'DHL / FedEx Express',a:'Recogida puerta a puerta en Medellín.',c:'~$1.100.000 COP'},
+ {t:'Proceso aduanero',s:'FNC / aviso previo FDA',a:'Certificado de contribución cafetera ante la FNC y aviso previo ante la FDA.',c:'~$43 COP / lb'},
+ {t:'Vuelo',s:'Rionegro → Miami',a:'Seguimiento completo del embarque hasta la entrega.',c:'Incluido en el flete'},
+ {t:'EE. UU.',s:'Entrega a tostadores',a:'Entrega a tostadores boutique con venta ya cerrada y cobro en dólares.',c:'Ingreso en USD'}];
+let route=1,ni=0;
+function setRoute(n){route=n;ni=0;$('r1').classList.toggle('on',n===1);$('r2').classList.toggle('on',n===2);flow()}
+function flow(){
+ const a=[...up,...(route===1?r1:r2)];
+ $('flow').innerHTML=a.map((x,i)=>`<div class="nd ${i===ni?'on':''} ${i===a.length-1?'last':''}" onclick="ni=${i};flow()"><small>Paso ${i+1}</small><b>${x.t}</b><em>${x.s}</em></div>`).join('');
+ const c=a[ni];$('insp').innerHTML=`<div><b>${c.t}:</b> ${c.a}</div><i>${c.c}</i>`;
+}
+ui();flow();sim();
+</script>
+</body>
+</html>
